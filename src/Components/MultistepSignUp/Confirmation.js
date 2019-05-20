@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
 import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import {signup} from '../../Actions'
+// import { connect } from "react-redux";
+// import {signup} from '../../Actions'
 
 class Confirmation extends Component {
  
@@ -47,18 +47,18 @@ class Confirmation extends Component {
   }
 }
 
-// export default withRouter(Confirmation);
-const mapStateToProps = state => {
-  return { 
+export default withRouter(Confirmation);
+// const mapStateToProps = state => {
+//   return { 
 
-  registering: state.registering
+//   registering: state.registering
   
-   };
-};
+//    };
+// };
 
-// export default connect(
-//   mapStateToProps,
-//   { signup }
-// )(withRouter(Confirmation));
+// // export default connect(
+// //   mapStateToProps,
+// //   { signup }
+// // )(withRouter(Confirmation));
 
-export default withRouter(connect(mapStateToProps, signup)(Confirmation))
+// export default withRouter(connect(mapStateToProps, signup)(Confirmation))
