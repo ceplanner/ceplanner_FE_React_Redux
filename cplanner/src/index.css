@@ -1,0 +1,20 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #edffff
+}
+
+.navbar-brand p{border : solid red 1px;
+  color:#b76bff;
+  margin-bottom: 0px;
+  font-size: 0.6rem
+
+}
+
+.nav-item p{
+  color: #d0b8fa;
+}
