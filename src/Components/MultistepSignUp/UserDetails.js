@@ -28,6 +28,7 @@ class UserDetails extends Component{
                 <FormGroup>
                     <Label>Last Name</Label>
                     <Input
+                    type='text'
                     placeholder='Last Name'
                     onChange={this.props.handleChange('lastName')}
                     defaultValue={values.lastName}

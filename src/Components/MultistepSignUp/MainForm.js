@@ -19,9 +19,7 @@ class MainForm extends Component {
     company: ""
   };
 
-  signup = (e) =>{
-  this.props.signup(this.state)
-  }
+  
 
   nextStep = () => {
     const { step } = this.state;
