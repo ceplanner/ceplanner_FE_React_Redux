@@ -19,7 +19,7 @@ class MainForm extends Component {
     company: ""
   };
 
-  signup = e =>{
+  signup = (e) =>{
   this.props.signup(this.state)
   }
 
@@ -87,4 +87,4 @@ const mapStateToProps = state => {
      };
 };
 
-export default withRouter(connect(mapStateToProps, signup)(MainForm))
+export default withRouter(connect(mapStateToProps, {signup})(MainForm))
