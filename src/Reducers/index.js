@@ -3,7 +3,8 @@ import {
   LOGIN_SUCCESS,
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
-    USER_UNAUTHORIZED
+  USER_UNAUTHORIZED,
+  
 } from "../Actions";
 
 const initialState = {
