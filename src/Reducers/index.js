@@ -4,7 +4,9 @@ import {
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
   USER_UNAUTHORIZED,
-  
+  REGISTER_START,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE
 } from "../Actions";
 
 const initialState = {
@@ -14,7 +16,8 @@ const initialState = {
   error: "",
   loggedIn: false,
   fetchingEvents: false,
-  errorStatusCode: null
+  errorStatusCode: null,
+  registering: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -52,7 +55,20 @@ const reducer = (state = initialState, action) => {
         errorStatusCode: action.payload.status,
         fetchingEvents: false
       };
-      
+    case REGISTER_START:
+      return {
+        ...state,
+        registering: true
+      };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        registering: false,
+        error: "",
+        errorStatusCode: null,
+        myEvents: action.payload
+      };
+
     default:
       return state;
   }
