@@ -6,7 +6,7 @@ import {
   USER_UNAUTHORIZED,
   REGISTER_START,
   REGISTER_SUCCESS,
-  REGISTER_FAILURE,
+  // REGISTER_FAILURE,
 
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
@@ -22,7 +22,7 @@ const initialState = {
   fetchingEvents: false,
   errorStatusCode: null,
   registering: false,
-  //fetchingUsers: false,
+  fetchingUsers: false,
   
 };
 

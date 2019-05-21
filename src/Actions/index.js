@@ -25,12 +25,12 @@ export const USER_UNAUTHORIZED = "FETCH_DATA_FAILURE";
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
-    .get("https://cep-buildweek.herokuapp.com/api/users", {
+    .get("https://cep-buildweek.herokuapp.com/api/events", {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res,'hi from get data res')
-      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.user});
+      console.log(res.data,'hi from get data res, change user')
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data});
     })
     .catch(err => {
       if (err.response.status === 403) {
@@ -75,7 +75,7 @@ export const getUser = () => dispatch => {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res,'hi from res')
+      console.log(res,'hi from get user res')
       dispatch({ type: FETCH_USER_SUCCESS, payload: res.data.user});
     })
     .catch(err => {

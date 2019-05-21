@@ -15,7 +15,7 @@ class MyProfile extends Component {
  
   render() {
     console.log(this.props.token, 'hi token')
-    // if(this.props.fetchingEvents)
+    
     if (this.props.fetchingUsers)
       return (
         <div className="eventfetching">
@@ -29,13 +29,14 @@ class MyProfile extends Component {
          
          
           <div className="cardd" key={user.id}>
-            
+            {console.log(this.props.token)}
             <div>{user.firstName}</div>
             <div>{user.lastName}</div>
             <div>{user.email}</div>
             <div>{user.jobTitle}</div>
             <div>{user.yearOfBirth}</div>
-            {/* <div>{user.password}</div> */}
+            <div>{user.token}</div>
+
           </div>
         )
         )}

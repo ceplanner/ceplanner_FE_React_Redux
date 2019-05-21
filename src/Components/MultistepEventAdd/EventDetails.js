@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Form, FormGroup, Label, Input, Button } from "reactstrap";
+import {  Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 class EventDetails extends Component {
   saveAndContinue = e => {
@@ -36,7 +36,7 @@ class EventDetails extends Component {
         <FormGroup>
           <Label>Event Start Date</Label>
           <Input
-            type="date"
+            type="text"
             placeholder="Event Start Date"
             onChange={this.props.handleChange("eventDate")}
             defaultValue={values.eventDate}
