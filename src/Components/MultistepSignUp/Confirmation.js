@@ -57,7 +57,7 @@ class Confirmation extends Component {
 const mapStateToProps = state => {
   return { 
    
-  Users: state.myEvents,
+  Users: state.users,
   registering: state.registering
   
    };
