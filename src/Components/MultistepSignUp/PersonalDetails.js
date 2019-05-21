@@ -20,7 +20,7 @@ class PersonalDetails extends Component {
         <FormGroup>
           <Label>Year of Birth</Label>
           <Input
-            type='intiger'
+            type='number'
             placeholder="Year of Birth"
             onChange={this.props.handleChange("yearOfBirth")}
             defaultValue={values.yearOfBirth}

@@ -15,6 +15,7 @@ class Confirmation extends Component {
     // this.props.signup(values)
     this.props.signup(this.props.values)
     this.props.history.push("/Login");
+    console.log(this.props.values)
   };
 
   back = e => {
@@ -25,7 +26,7 @@ class Confirmation extends Component {
   render() {
 
     const {
-      values: { firstName, lastName, email, password, yearOfBirth, jobTitle, company }
+      values: { firstName, lastName, email, password,yearOfBirth, jobTitle, company }
     } = this.props;
 
     return (
@@ -56,7 +57,7 @@ class Confirmation extends Component {
 const mapStateToProps = state => {
   return { 
    
-  myEvents: state.myEvents,
+  Users: state.myEvents,
   registering: state.registering
   
    };

@@ -6,7 +6,7 @@ import {
   USER_UNAUTHORIZED,
   REGISTER_START,
   REGISTER_SUCCESS,
-  REGISTER_FAILURE
+  REGISTER_FAILURE,
 } from "../Actions";
 
 const initialState = {

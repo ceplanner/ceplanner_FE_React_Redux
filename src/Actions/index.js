@@ -8,8 +8,9 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
-  return axios.post("https://cep-buildweek.herokuapp.com/api/login", creds).then(res => {
-    localStorage.setItem("token", res.data.payload);
+  return axios.post("https://cep-buildweek.herokuapp.com/api/login", creds ).then(res => {
+    console.log(res)
+    localStorage.setItem("token", res.data.token);
     dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
   });
 };
@@ -23,11 +24,12 @@ export const USER_UNAUTHORIZED = "FETCH_DATA_FAILURE";
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
-    .get("http://localhost:5000/api/data", {
+    .get("https://cep-buildweek.herokuapp.com/api/users", {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.data });
+      console.log(res,'hi from res')
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.user});
     })
     .catch(err => {
       if (err.response.status === 403) {
@@ -42,16 +44,18 @@ export const getData = () => dispatch => {
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAILURE = "REGISTER_FAILURE";
+// export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
 export const signup = creds => dispatch => {
   dispatch({ type: REGISTER_START });
   axios
     .post("https://cep-buildweek.herokuapp.com/api/register", creds)
     .then(res => {
-      dispatch({ type: REGISTER_SUCCESS, payload: res.data.payload });
+      console.log(res.data, 'hi')
+      dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     })
-    .catch(err => {
-      dispatch({ type: REGISTER_FAILURE, payload: err.response });
-    });
+    // .catch(err => {
+    //   console.log(err)
+    //   dispatch({ type: REGISTER_FAILURE, payload: err.response });
+    // });
 };
