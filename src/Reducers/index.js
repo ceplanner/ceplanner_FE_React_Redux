@@ -7,17 +7,23 @@ import {
   REGISTER_START,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
+
+  FETCH_USER_START,
+  FETCH_USER_SUCCESS,
 } from "../Actions";
 
 const initialState = {
   myEvents: [],
+  users:[],
   loggingIn: false,
   token: localStorage.getItem("token"),
   error: "",
   loggedIn: false,
   fetchingEvents: false,
   errorStatusCode: null,
-  registering: false
+  registering: false,
+  //fetchingUsers: false,
+  
 };
 
 const reducer = (state = initialState, action) => {
@@ -66,7 +72,23 @@ const reducer = (state = initialState, action) => {
         registering: false,
         error: "",
         errorStatusCode: null,
-        myEvents: action.payload
+        users: action.payload
+      };
+
+      // 
+      case FETCH_USER_START:
+      return {
+        ...state,
+        fetchingUsers: true
+      };
+    case FETCH_USER_SUCCESS:
+      // console.log(action.payload.data)
+      return {
+        ...state,
+        error: "",
+        errorStatusCode: null,
+        fetchingUsers: false,
+        users: action.payload
       };
 
     default:

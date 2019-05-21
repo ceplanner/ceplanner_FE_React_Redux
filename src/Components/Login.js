@@ -25,8 +25,11 @@ class Login extends Component {
       login = e => {
         // console.log(this.props)
         e.preventDefault();
+
+        //this is so lazy should be accomplished with state objects ***************************************************
+      
         this.props.login(this.state.credentials)
-          .then(() => this.props.history.push('/MyEvents'));
+          .then(() => this.props.history.push('/MyEvents')).then(()=> window.location.reload())
           
       };
 
