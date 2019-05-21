@@ -20,6 +20,9 @@ class MyEvents extends Component {
       );
     return (
       <div>
+        
+        <NavLink href={"/addevent"}>Add Event></NavLink>
+
         {this.props.myEvents.map(myEvent => (
           <div className="cardd" key={myEvent.id}>
             <NavLink href={`/MyEvents/${myEvent.id}`}>

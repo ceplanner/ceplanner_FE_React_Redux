@@ -6,10 +6,15 @@ import {
   USER_UNAUTHORIZED,
   REGISTER_START,
   REGISTER_SUCCESS,
-  // REGISTER_FAILURE,
-
+  REGISTER_FAILURE,
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
+
+  ADD_EVENT_START, 
+  ADD_EVENT_SUCCESS,
+  ADD_EVENT_FAILURE, 
+
+
 } from "../Actions";
 
 const initialState = {
@@ -23,6 +28,8 @@ const initialState = {
   errorStatusCode: null,
   registering: false,
   fetchingUsers: false,
+  addingEvent: false,
+  
   
 };
 
@@ -89,6 +96,26 @@ const reducer = (state = initialState, action) => {
         errorStatusCode: null,
         fetchingUsers: false,
         users: action.payload
+      };
+
+      case ADD_EVENT_START:
+      return {
+        ...state,
+        addingEvent: true
+      };
+    case ADD_EVENT_SUCCESS:
+      return {
+        ...state,
+        addingEvent: false,
+        error: '',
+        errorStatusCode: null,
+        myEvents: action.payload
+      };
+      case ADD_EVENT_FAILURE:
+      return {
+        ...state,
+        addingEvent: false,
+        error: action.payload
       };
 
     default:

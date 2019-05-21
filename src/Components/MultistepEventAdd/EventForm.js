@@ -16,7 +16,8 @@ class EventForm extends Component {
     eventDescription: "",
     eventBudget: "",
     location: "",
-    agenda: ""
+    agenda: "",
+    user_id: parseInt(localStorage.getItem('userid'))
   };
 
   
@@ -41,8 +42,8 @@ class EventForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda } = this.state;
-    const values = { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda};
+    const { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda,user_id } = this.state;
+    const values = { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda, user_id};
     switch (step) {
       case 1:
         return (

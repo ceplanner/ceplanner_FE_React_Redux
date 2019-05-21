@@ -11,6 +11,7 @@ export const login = creds => dispatch => {
   return axios.post("https://cep-buildweek.herokuapp.com/api/login", creds ).then(res => {
     console.log(res,'from login')
     localStorage.setItem("token", res.data.token);
+    localStorage.setItem("userid", res.data.user.id);
     dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
   });
 };
@@ -29,7 +30,7 @@ export const getData = () => dispatch => {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res.data,'hi from get data res, change user')
+      console.log(res.data,'hi from get data res')
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data});
     })
     .catch(err => {
@@ -45,7 +46,7 @@ export const getData = () => dispatch => {
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-// export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
 export const signup = creds => dispatch => {
   dispatch({ type: REGISTER_START });
@@ -88,3 +89,22 @@ export const getUser = () => dispatch => {
 };
 
 //add events *******************************************************************8
+export const ADD_EVENT_START = 'ADD_EVENT_START';
+export const ADD_EVENT_SUCCESS = 'ADD_EVENT_SUCCESS';
+export const ADD_EVENT_FAILURE = 'ADD_EVENT_FAILURE';
+
+
+export const addEvent = event => dispatch => {
+  dispatch({ type: ADD_EVENT_START });
+  axios
+    .post("https://cep-buildweek.herokuapp.com/api/events", event, {headers: { Authorization: localStorage.getItem('token') }
+    })
+    .then(res => {
+      console.log(res.data, 'hiiiiiii')
+      dispatch({ type: ADD_EVENT_SUCCESS, payload: res.data });
+    })
+    // .catch(err => {
+    //   console.log(err)
+    //   dispatch({ type: ADD_EVENT_FAILURE, payload: err.response });
+    // });
+};
