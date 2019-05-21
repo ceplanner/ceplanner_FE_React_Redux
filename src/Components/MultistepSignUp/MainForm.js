@@ -3,6 +3,9 @@ import UserDetails from "./UserDetails";
 import PersonalDetails from "./PersonalDetails";
 import Confirmation from "./Confirmation";
 import Login from "../Login"
+import {signup} from '../../Actions'
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class MainForm extends Component {
   state = {
@@ -11,11 +14,12 @@ class MainForm extends Component {
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    yearofBirth: "",
+    yearOfBirth: "",
     jobTitle: "",
     company: ""
   };
+
+  
 
   nextStep = () => {
     const { step } = this.state;
@@ -37,8 +41,8 @@ class MainForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, password, confirmPassword, yearofBirth,jobTitle,company } = this.state;
-    const values = { firstName, lastName, email, password, confirmPassword, yearofBirth,jobTitle,company};
+    const { firstName, lastName, email, password, yearOfBirth,jobTitle,company } = this.state;
+    const values = { firstName, lastName, email, password, yearOfBirth, jobTitle, company};
     switch (step) {
       case 1:
         return (
@@ -55,6 +59,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+           
           />
         );
       case 3:
@@ -63,6 +68,7 @@ class MainForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
+            signup={this.signup}
           />
         );
       case 4:
@@ -73,4 +79,10 @@ class MainForm extends Component {
   }
 }
 
-export default MainForm;
+const mapStateToProps = state => {
+  return { 
+  registering: state.registering
+     };
+};
+
+export default withRouter(connect(mapStateToProps, {signup})(MainForm))

@@ -28,6 +28,7 @@ class UserDetails extends Component{
                 <FormGroup>
                     <Label>Last Name</Label>
                     <Input
+                    type='text'
                     placeholder='Last Name'
                     onChange={this.props.handleChange('lastName')}
                     defaultValue={values.lastName}
@@ -53,7 +54,7 @@ class UserDetails extends Component{
                     defaultValue={values.password}
                     />
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                     <Label>Confirm Password</Label>
                     <Input
                     type='password'
@@ -61,7 +62,7 @@ class UserDetails extends Component{
                     onChange={this.props.handleChange('confirmPassword')}
                     defaultValue={values.confirmPassword}
                     />
-                </FormGroup>
+                </FormGroup> */}
                 <Button onClick={this.saveAndContinue}>Save And Continue </Button>
             </Form>
         )
