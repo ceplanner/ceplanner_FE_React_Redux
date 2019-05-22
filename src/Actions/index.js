@@ -8,12 +8,14 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
-  return axios.post("https://cep-buildweek.herokuapp.com/api/login", creds ).then(res => {
-    console.log(res,'from login')
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("userid", res.data.user.id);
-    dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
-  });
+  return axios
+    .post("https://cep-buildweek.herokuapp.com/api/login", creds)
+    .then(res => {
+      console.log(res, "from login");
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userid", res.data.user.id);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
+    });
 };
 
 // to be relaced with "https://cep-buildweek.herokuapp.com/api/myevents"*********************
@@ -30,8 +32,8 @@ export const getData = () => dispatch => {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res.data,'hi from get data res')
-      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data});
+      console.log(res.data, "hi from get data res");
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
     .catch(err => {
       if (err.response.status === 403) {
@@ -53,21 +55,19 @@ export const signup = creds => dispatch => {
   axios
     .post("https://cep-buildweek.herokuapp.com/api/register", creds)
     .then(res => {
-      console.log(res.data, 'hi')
+      console.log(res.data, "hi");
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
-    })
-    // .catch(err => {
-    //   console.log(err)
-    //   dispatch({ type: REGISTER_FAILURE, payload: err.response });
-    // });
+    });
+  // .catch(err => {
+  //   console.log(err)
+  //   dispatch({ type: REGISTER_FAILURE, payload: err.response });
+  // });
 };
 
-
-//getUser to pull the users 
+//getUser to pull the users
 export const FETCH_USER_START = "FETCH_USER_START";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
-
 
 export const getUser = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
@@ -76,8 +76,8 @@ export const getUser = () => dispatch => {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res,'hi from get user res')
-      dispatch({ type: FETCH_USER_SUCCESS, payload: res.data.user});
+      console.log(res, "hi from get user res");
+      dispatch({ type: FETCH_USER_SUCCESS, payload: res.data.user });
     })
     .catch(err => {
       if (err.response.status === 403) {
@@ -89,22 +89,75 @@ export const getUser = () => dispatch => {
 };
 
 //add events *******************************************************************8
-export const ADD_EVENT_START = 'ADD_EVENT_START';
-export const ADD_EVENT_SUCCESS = 'ADD_EVENT_SUCCESS';
-export const ADD_EVENT_FAILURE = 'ADD_EVENT_FAILURE';
-
+export const ADD_EVENT_START = "ADD_EVENT_START";
+export const ADD_EVENT_SUCCESS = "ADD_EVENT_SUCCESS";
+export const ADD_EVENT_FAILURE = "ADD_EVENT_FAILURE";
 
 export const addEvent = event => dispatch => {
   dispatch({ type: ADD_EVENT_START });
   axios
-    .post("https://cep-buildweek.herokuapp.com/api/events", event, {headers: { Authorization: localStorage.getItem('token') }
+    .post("https://cep-buildweek.herokuapp.com/api/events", event, {
+      headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
-      console.log(res.data, 'hiiiiiii')
+      console.log(res.data, "hiiiiiii");
       dispatch({ type: ADD_EVENT_SUCCESS, payload: res.data });
-    })
-    // .catch(err => {
-    //   console.log(err)
-    //   dispatch({ type: ADD_EVENT_FAILURE, payload: err.response });
-    // });
+    });
+  // .catch(err => {
+  //   console.log(err)
+  //   dispatch({ type: ADD_EVENT_FAILURE, payload: err.response });
+  // });
 };
+
+//Delete Events
+export const DELETE_EVENT_START = "DELETE_EVENT_START";
+export const DELETE_EVENT_SUCCESS = "DELETE_EVENT_SUCCESS";
+export const DELETE_EVENT_FAILURE = "DELETE_EVENT_FAILURE";
+
+export const deleteEvent = id => dispatch => {
+  
+  dispatch({ type: DELETE_EVENT_START });
+  axios
+    .delete(`https://cep-buildweek.herokuapp.com/api/events/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
+    .then(res => {
+      console.log(id, 'TESTING')
+      dispatch({ type: DELETE_EVENT_SUCCESS, payload: id });
+    })
+    .catch(err => {
+      if (err.response.status === 403) {
+        dispatch({ type: USER_UNAUTHORIZED, payload: err.response });
+      } else {
+        dispatch({ type: DELETE_EVENT_FAILURE, payload: err.response });
+      }
+    });
+};
+
+
+//Edit Event 
+
+export const EDIT_EVENT_START = 'EDIT_EVENT_START';
+export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
+export const EDIT_EVENT_FAILURE = 'EDIT_EVENT_FAILURE';
+
+export const editEvent = id => dispatch => {
+  
+  dispatch({ type: EDIT_EVENT_START });
+  axios
+    .put(`https://cep-buildweek.herokuapp.com/api/events/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
+    .then(res => {
+      console.log(id, 'TESTING put')
+      dispatch({ type: EDIT_EVENT_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      if (err.response.status === 403) {
+        dispatch({ type: USER_UNAUTHORIZED, payload: err.response });
+      } else {
+        dispatch({ type: EDIT_EVENT_FAILURE, payload: err.response });
+      }
+    });
+};
+

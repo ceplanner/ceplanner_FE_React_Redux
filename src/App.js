@@ -15,6 +15,7 @@ import myProfile from "./Components/myProfile";
 import AddEvent from "./Components/AddEvent";
 import NavPrivate from "./Components/NavPrivate";
 import NavPublic from "./Components/NavPublic";
+import FormEditMain from './Components/FormEditMain'
 
 
 // sign out with local storage this should be improved if time allows ***************************************************
@@ -47,6 +48,7 @@ class App extends Component {
           <PrivateRoute path="/MyEvents/:id" component={Event} />
           <PrivateRoute exact path="/myProfile" component={myProfile} />
           <PrivateRoute exact path="/AddEvent" component={AddEvent} />
+          <PrivateRoute exact path="/FormEditMain" component={FormEditMain} />
         </div>
       </Router>
     );

@@ -1,8 +1,10 @@
-import { getData } from "../Actions";
+import { getData, deleteEvent,editEvent } from "../Actions";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Loader from 'react-loader-spinner';
+import {NavLink} from 'reactstrap'
+    
 
 
 
@@ -11,23 +13,36 @@ class Event extends Component {
     this.props.getData();
   }
 
+  deleteEvent = id =>{
+    
+    this.props.deleteEvent(id)
+  }
+
   render() {
+    
     const id = this.props.match.params.id;
-    const event = this.props.myEvents.find(event => event.id === id);
+    const event = this.props.myEvents.find(event => `${event.id}` === id);
     if (this.props.fetchingEvents)
     return (
+    
       <div className="eventfetching" >
         <Loader type="Circles" color="#b76bff" height="120" width="120" />
       </div>
     );
     return <div>
-    {/* {console.log(event)} */}
-    <div>{event ? event.event_name : ""}</div>
-    <div>{event ? event.event_type : ""}</div>
-    <div>{event ? event.event_budget : ""}</div>
-    <div>{event ? event.event_date : ""}</div>
-    <div>{event ? event.description : ""}</div>
-    <div className="agenda"></div>
+
+     <NavLink href={"/formeditmain"} ><button>Edit</button></NavLink>
+    
+    <div>{event ? event.eventName : ""}</div>
+    <div>{event ? event.eventType : ""}</div>
+    <div>{event ? event.eventBudget : ""}</div>
+    <div>{event ? event.eventDate : ""}</div>
+    <div>{event ? event.eventDescription : ""}</div>
+    <div>{event ? event.location : ""}</div>
+    <div>{event ? event.id : ""}</div>
+
+    <div className="agenda">{event ? event.agenda : ""}</div>
+    <button onClick={()=>this.deleteEvent(event.id)}>Delete</button>
     </div>;
   }
 }
@@ -45,6 +60,15 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getData }
+    { getData, deleteEvent,editEvent }
   )(Event)
 );
+
+
+{/* <div>{myEvent.eventName}</div>
+              <div>{myEvent.eventType}</div>
+              <div>{myEvent.eventDate}</div>
+              <div>{myEvent.eventDescription}</div>
+              <div>{myEvent.location}</div>
+              <div>{myEvent.agenda}</div>
+              <div>{myEvent.user_id}</div> */}

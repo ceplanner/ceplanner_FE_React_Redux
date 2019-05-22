@@ -27,9 +27,9 @@ import { getUser } from "../Actions";
     });
  
   return (
-    <div>
+    <div >
       { user.map(user =>
-      <Navbar  light expand="md">
+      <Navbar  light expand="md" key={user.id}>
           <NavbarBrand href="/" > <p>CORPORATE </p><p> EVENT PLANNER</p></NavbarBrand>
            <Nav className="ml-auto" navbar>
             <NavItem>
