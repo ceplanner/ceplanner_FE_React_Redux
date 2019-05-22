@@ -11,10 +11,8 @@ class MyProfile extends Component {
   componentDidMount() {
     this.props.getUser();
   }
-
- 
-  render() {
-    console.log(this.props.token, 'hi token')
+   render() {
+    //console.log(this.props.token, 'hi token')
     
     if (this.props.fetchingUsers)
       return (
@@ -22,11 +20,14 @@ class MyProfile extends Component {
           <Loader type="Circles" color="#b76bff" height="120" width="120" />
         </div>
       );
-    return (
+
+      const user =  this.props.users.filter(function(user) {
+        return `${user.id}` === localStorage.getItem('userid')
+      });
       
-      <div>
-        {this.props.users.map(user => (
-         
+    return (
+        <div>
+        {user.map(user => (
          
           <div className="cardd" key={user.id}>
             {console.log(this.props.token)}
@@ -35,7 +36,7 @@ class MyProfile extends Component {
             <div>{user.email}</div>
             <div>{user.jobTitle}</div>
             <div>{user.yearOfBirth}</div>
-            <div>{user.token}</div>
+            <div>{user.id}</div>
 
           </div>
         )

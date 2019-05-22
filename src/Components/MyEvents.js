@@ -18,12 +18,17 @@ class MyEvents extends Component {
           <Loader type="Circles" color="#b76bff" height="120" width="120" />
         </div>
       );
+
+      const myevents =  this.props.myEvents.filter(function(myevents) {
+        return `${myevents.user_id}` === localStorage.getItem('userid')
+      });
+
     return (
       <div>
         
         <NavLink href={"/addevent"}>Add Event></NavLink>
-
-        {this.props.myEvents.map(myEvent => (
+         {console.log(this.props.myEvents, 'bonjoir')}
+        {myevents.map(myEvent => (
           <div className="cardd" key={myEvent.id}>
             <NavLink href={`/MyEvents/${myEvent.id}`}>
               <div>{myEvent.eventName}</div>
@@ -32,6 +37,7 @@ class MyEvents extends Component {
               <div>{myEvent.eventDescription}</div>
               <div>{myEvent.location}</div>
               <div>{myEvent.agenda}</div>
+              <div>{myEvent.user_id}</div>
 
             </NavLink>
           </div>
@@ -43,6 +49,7 @@ class MyEvents extends Component {
 
 const mapStateToProps = state => {
   return {
+    users:state.users,
     myEvents: state.myEvents,
     fetchingEvents: state.fetchingEvents,
     error: state.error,
