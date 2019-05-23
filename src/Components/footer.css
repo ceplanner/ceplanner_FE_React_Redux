@@ -1,0 +1,35 @@
+.footerWrapper {
+  background: rgb(233, 233, 233);
+}
+
+.topFooterContainer {
+  display: flex;
+  line-height: 15px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.footerP {
+  color: grey;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.bottomFooterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+.fab {
+  margin-right: 10px;
+}
+
+.copyRight {
+  color: grey;
+  font-size: 12px;
+  padding-right: 20px;
+}
