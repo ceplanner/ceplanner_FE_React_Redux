@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {signup} from '../../Actions'
+import {signup} from '../../Actions';
+import imagewinner2 from "../../Images/Image-winner2.png";
 
 class Confirmation extends Component {
  
@@ -30,12 +31,15 @@ class Confirmation extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className='formcontainer2'>
          {/* {console.log(this.props)} */}
+         <div className="imgcontainer2">
+          <img src={imagewinner2} className="img-fluid" alt="fp" />
+        </div>
+         
+      <div className='signupform2'>
         <h1 className="confpage">Confirm your Details</h1>
-        <p>
-          Click Confirm if the following details have been correctly entered
-        </p>
+        
         <ListGroup>
           <ListGroupItem>First Name: {firstName}</ListGroupItem>
           <ListGroupItem>Last Name: {lastName}</ListGroupItem>
@@ -45,9 +49,10 @@ class Confirmation extends Component {
           <ListGroupItem>Job Title: {jobTitle}</ListGroupItem>
           <ListGroupItem>Company:  {company}</ListGroupItem>
         </ListGroup>
-
+         <div className='buttongroup'>
         <Button onClick={this.back}>Back</Button>
-        <Button onClick={this.saveAndContinue}>Confirm & login </Button>
+        <Button onClick={this.saveAndContinue}>Confirm & login </Button></div>
+        </div>
       </div>
     );
   }

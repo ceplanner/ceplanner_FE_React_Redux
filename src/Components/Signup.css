@@ -58,3 +58,20 @@
     margin-left: 300px;
    }
    
+   .buttongroup{
+       display: flex;
+       flex-wrap: wrap;
+       
+   }
+
+   .buttongroup button{
+    margin-left: 40px;
+    
+}
+
+
+.list-group-item{
+    color: #AAA6FC;
+    font-size: 1.6rem;
+    
+}
