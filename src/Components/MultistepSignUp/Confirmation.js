@@ -41,7 +41,7 @@ class Confirmation extends Component {
         <h1 className="confpage">Confirm your Details</h1>
         
         <ListGroup>
-          <ListGroupItem>First Name: {firstName}</ListGroupItem>
+          <ListGroupItem>First Name:{firstName}</ListGroupItem>
           <ListGroupItem>Last Name: {lastName}</ListGroupItem>
           <ListGroupItem>Email: {email}</ListGroupItem>
           <ListGroupItem>Password: {password}</ListGroupItem>

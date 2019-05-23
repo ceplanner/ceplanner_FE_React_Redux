@@ -1,8 +1,4 @@
-.cardd{
-    border: solid blue 1px;
-    width: 25%;
-    margin: 10px;
-}
+
 .eventfetching{
     position: fixed;
   z-index: 999;
@@ -20,4 +16,31 @@
     width: 70%;
     
     border: solid 2px purple;
+}
+
+.signupform2 .profile{
+    /* border: solid red 1px; */
+    margin-top: 20%;
+}
+
+.signupform2 .profile .profilep1{
+    /* border: solid red 1px; */
+   text-align: center;
+   margin-bottom: 30px;
+
+}
+
+.signupform2 .profile .profilep1 .fa-user{
+    font-size: 5rem;
+    color: white;
+    background-color: rgb(27, 20, 20);
+    border-radius: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+
+.profile p{
+    text-align: center;
+
 }

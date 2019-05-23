@@ -17,6 +17,22 @@
     padding: 0px;
 }
 
-.publicnavbar .signin p{
-    font-weight: 700;
+.privatenavbar
+{
+    width: 80%;
+    margin:0 auto;
+}
+
+.privatenavbar
+{
+    font-size:1.8rem;
+}
+.privatenavbar .fa-user{
+   
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #AAA6FC;
+    color:white;
+    
+    
 }
