@@ -152,12 +152,12 @@ export const editEvent = (id,event) => dispatch => {
       console.log(id, 'TESTING put')
       dispatch({ type: EDIT_EVENT_SUCCESS, payload: res.data });
     })
-    .catch(err => {
-      if (err.response.status === 403) {
-        dispatch({ type: USER_UNAUTHORIZED, payload: err.response });
-      } else {
-        dispatch({ type: EDIT_EVENT_FAILURE, payload: err.response });
-      }
-    });
+    // .catch(err => {
+    //   if (err.response.status === 403) {
+    //     dispatch({ type: USER_UNAUTHORIZED, payload: err.response });
+    //   } else {
+    //     dispatch({ type: EDIT_EVENT_FAILURE, payload: err.response });
+    //   }
+    // });
 };
 

@@ -6,6 +6,7 @@ import Login from "../Login"
 import {signup} from '../../Actions'
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import  '../Signup.css'
 
 class MainForm extends Component {
   state = {

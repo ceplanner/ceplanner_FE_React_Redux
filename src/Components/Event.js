@@ -29,13 +29,13 @@ class Event extends Component {
     );
     return <div>
 
-     <NavLink href={"/formeditmain"} ><button>Edit</button></NavLink>
+     
 
      <Link to={{
   pathname: '/editform',
   state: {
     selectedevent: event}
-}}>hi</Link>
+}}><button>Edit</button></Link>
     
     <div>{event ? event.eventName : ""}</div>
     <div>{event ? event.eventType : ""}</div>
