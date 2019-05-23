@@ -141,11 +141,11 @@ export const EDIT_EVENT_START = 'EDIT_EVENT_START';
 export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
 export const EDIT_EVENT_FAILURE = 'EDIT_EVENT_FAILURE';
 
-export const editEvent = id => dispatch => {
+export const editEvent = (id,event) => dispatch => {
   
   dispatch({ type: EDIT_EVENT_START });
   axios
-    .put(`https://cep-buildweek.herokuapp.com/api/events/${id}`, {
+    .put(`https://cep-buildweek.herokuapp.com/api/events/${id}`, event, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {

@@ -1,12 +1,10 @@
 import { getData, deleteEvent,editEvent } from "../Actions";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import Loader from 'react-loader-spinner';
 import {NavLink} from 'reactstrap'
     
-
-
 
 class Event extends Component {
   componentDidMount() {
@@ -32,6 +30,12 @@ class Event extends Component {
     return <div>
 
      <NavLink href={"/formeditmain"} ><button>Edit</button></NavLink>
+
+     <Link to={{
+  pathname: '/editform',
+  state: {
+    selectedevent: event}
+}}>hi</Link>
     
     <div>{event ? event.eventName : ""}</div>
     <div>{event ? event.eventType : ""}</div>
@@ -65,10 +69,3 @@ export default withRouter(
 );
 
 
-{/* <div>{myEvent.eventName}</div>
-              <div>{myEvent.eventType}</div>
-              <div>{myEvent.eventDate}</div>
-              <div>{myEvent.eventDescription}</div>
-              <div>{myEvent.location}</div>
-              <div>{myEvent.agenda}</div>
-              <div>{myEvent.user_id}</div> */}

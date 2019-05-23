@@ -1,23 +1,40 @@
 import React, { Component } from "react";
 import EditDetails from '../MultistepEdit/EditDetails'
-import Confirmation from '../MultistepEdit/Confirmation'
+import EditConfirmation from './EditConfirmation'
 import MyEvents from '../MyEvents'
-import {signup} from '../../Actions'
+import {editEvent} from '../../Actions'
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class EditForm extends Component {
-  state = {
-    step: 1,
-    eventName: "hi",
-    eventType: "",
-    eventDate: "",
-    eventDescription: "",
-    eventBudget: "",
-    location: "",
-    agenda: "",
-    user_id: parseInt(localStorage.getItem('userid'))
-  };
+  constructor(props)
+  {
+    super(props)
+    this.state ={step: 1,
+      eventName:this.props.location.state.selectedevent.eventName,
+      eventType: this.props.location.state.selectedevent.eventType,
+      eventDate: this.props.location.state.selectedevent.eventDate,
+      eventDescription: this.props.location.state.selectedevent.eventDescription,
+      eventBudget: this.props.location.state.selectedevent.eventBudget,
+      location: this.props.location.state.selectedevent.location,
+      agenda: this.props.location.state.selectedevent.agenda,
+      id: this.props.location.state.selectedevent.id,
+      user_id: parseInt(localStorage.getItem('userid'))}
+      
+  }
+  // state = {
+  //   step: 1,
+  //   eventName:'',
+  //   eventType: "",
+  //   eventDate: "",
+  //   eventDescription: "",
+  //   eventBudget: "",
+  //   location: "",
+  //   agenda: "",
+  //   user_id: parseInt(localStorage.getItem('userid'))
+  // };
+
+  
 
   nextStep = () => {
     const { step } = this.state;
@@ -38,9 +55,10 @@ class EditForm extends Component {
   };
 
   render() {
+    
     const { step } = this.state;
-    const { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda,user_id } = this.state;
-    const values = { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda, user_id};
+    const { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda,user_id,id } = this.state;
+    const values = { eventName, eventType, eventDate, eventDescription, eventBudget,location,agenda, user_id, id};
     switch (step) {
       case 1:
         return (
@@ -52,11 +70,11 @@ class EditForm extends Component {
         );
             case 2:
         return (
-          <Confirmation
+          <EditConfirmation
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
-            signup={this.signup}
+            
           />
         );
       case 3:
@@ -67,12 +85,12 @@ class EditForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   return { 
     //to be updated*************************************************************** 
-  registering: state.registering
+    selectedevent: state.myEvents.find(selected=>selected.id===props.match.params.id)
      };
 };
 
 //to be updated******************************************************************* 
-export default withRouter(connect(mapStateToProps, {signup})(EditForm))
+export default withRouter(connect(mapStateToProps, {editEvent})(EditForm))

@@ -2,19 +2,16 @@ import React, { Component } from "react";
 import { Button, ListGroup, ListGroupItem } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addEvent } from "../../Actions";
+import {editEvent} from '../../Actions'
 
 
-class Confirmation extends Component {
+class EditConfirmation extends Component {
   saveAndContinue = e => {
     e.preventDefault();
     //tobe completed****************************************************8
-
-    this.props.addEvent(this.props.values)
-
-
+    this.props.editEvent(this.props.values.id, this.props.values)
     this.props.history.push("/myevents")
-    
+  
   };
 
   back = e => {
@@ -25,7 +22,8 @@ class Confirmation extends Component {
   
 
   render() {
-    console.log(this.props.values,'test 2222')
+
+    
     const {
      
       values: {
@@ -36,7 +34,7 @@ class Confirmation extends Component {
         eventBudget,
         location,
         agenda,
-        user_id
+        user_id, id
         
       }
     } = this.props;
@@ -56,7 +54,8 @@ class Confirmation extends Component {
           <ListGroupItem>Event Budget: {eventBudget}</ListGroupItem>
           <ListGroupItem>Event Title: {location}</ListGroupItem>
           <ListGroupItem>Event Agenda: {agenda}</ListGroupItem>
-          <ListGroupItem>Event Agenda: {user_id}</ListGroupItem>
+          <ListGroupItem>Event user_id: {user_id}</ListGroupItem>
+          <ListGroupItem>Event id: {id}</ListGroupItem>
         </ListGroup>
 
         <Button onClick={this.back}>Back</Button>
@@ -67,11 +66,11 @@ class Confirmation extends Component {
 }
 
 // export default withRouter(Confirmation);
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   return {
     
-    addingEvent: state.addingEvent,
-    error: state.error
+    selectedevent: state.myEvents.find(selected=>selected.id===props.match.params.id)
+   
   };
 };
 
@@ -83,6 +82,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { addEvent }
-  )(Confirmation)
+    { editEvent }
+  )(EditConfirmation)
 );
