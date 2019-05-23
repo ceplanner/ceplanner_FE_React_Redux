@@ -42,7 +42,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {this.state.loggedIn? <NavPrivate /> : <NavPublic />}
-
+          <Route exact path="/" component={Login} />
           <Route path="/Login" component={Login} />
           <Route path="/Signup" component={Signup} />
           {/* <Route path="/MyEvents" component={MyEvents} /> */}

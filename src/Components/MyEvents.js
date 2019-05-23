@@ -5,6 +5,12 @@ import { getData } from "../Actions";
 import "./component.css";
 import Loader from "react-loader-spinner";
 import { NavLink } from "reactstrap";
+import addcalender from '../Images/Icons/calendar-plus.png';
+import Calendar from 'react-calendar';
+import Eventstage from './eventstage'
+
+
+
 
 class MyEvents extends Component {
   componentDidMount() {
@@ -23,26 +29,37 @@ class MyEvents extends Component {
         return `${myevents.user_id}` === localStorage.getItem('userid')
       });
 
-    return (
-      <div>
-        
-        <NavLink href={"/addevent"}>Add Event></NavLink>
-         {console.log(this.props.myEvents, 'bonjoir')}
-        {myevents.map(myEvent => (
-          <div className="cardd" key={myEvent.id}>
-            <NavLink href={`/MyEvents/${myEvent.id}`}>
-              <div>{myEvent.eventName}</div>
-              <div>{myEvent.eventType}</div>
-              <div>{myEvent.eventDate}</div>
-              <div>{myEvent.eventDescription}</div>
-              <div>{myEvent.location}</div>
-              <div>{myEvent.agenda}</div>
-              <div>{myEvent.user_id}</div>
+    return (<div className='myeventcontainer'>
+       <Eventstage />
+ {myevents.map(myEvent => (
+  <div className="card-columns mt-3" key={myEvent.id}>
+    <NavLink href={`/MyEvents/${myEvent.id}`}>
+     
+ 
+ <div class="card text-center">
+   <div class="card-body">
+     <h5 class="card-title">{myEvent.eventName}</h5>
+     <p class="card-text">{myEvent.eventDescription}</p>
+     <p class="card-text"><small class="text-muted">Event Date: {myEvent.eventDate}</small></p>
+     <h5 class="card-title">Read More</h5>
+   </div>
+ </div>
 
-            </NavLink>
-          </div>
-        ))}
-      </div>
+      {/* <div>{myEvent.eventName}</div>
+      <div>{myEvent.eventType}</div>
+      <div>{myEvent.eventDate}</div>
+      <div>{myEvent.eventDescription}</div>
+      <div>{myEvent.location}</div>
+      <div>{myEvent.agenda}</div>
+      <div>{myEvent.user_id}</div> */}
+    </NavLink>
+{/* //test */}
+
+{/* end test */}
+
+  </div>
+))}
+</div>
     );
   }
 }

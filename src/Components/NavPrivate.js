@@ -33,16 +33,14 @@ import LOGO from '../Images/LOGO.png'
       <Navbar  light expand="md" key={user.id}>
          <NavbarBrand href="/" >  <img src={LOGO} alt='logo'></img></NavbarBrand>
            <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/login" onClick={this.test} className='ml-5' ><p>Sign Out</p></NavLink>
-            </NavItem>
+            
             <NavItem>
               <NavLink href="/myEvents" className='ml-5'>
                  <p>My Events</p>
               </NavLink>
             </NavItem>
             <NavItem><NavLink href="/myProfile" className='ml-5'>
-              <i class="fas fa-user"></i>
+              <i className="fas fa-user"></i>
               </NavLink></NavItem>
             <NavItem>
               <NavLink href="/myProfile" >
@@ -50,6 +48,9 @@ import LOGO from '../Images/LOGO.png'
               </NavLink>
               
                           </NavItem>
+                          <NavItem>
+              <NavLink href="/login" onClick={this.test} className='ml-5' ><p>Sign Out</p></NavLink>
+            </NavItem>
 
            
           </Nav> 

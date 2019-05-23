@@ -44,3 +44,58 @@
     text-align: center;
 
 }
+
+.eventcontainer
+{
+    width: 80%;
+    padding-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    /* border: solid red 1px; */
+    
+}
+
+.eventadd{
+    /* border: solid red 1px; */
+    width: 20%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.eventadd .addcard, .currenteventswrap, .pasteventswrap, .totaleventswrap, .thismonthwrap, .thisyearwrap{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.currentevents{
+ background-color: rgb(193, 190, 250);
+ width: 18%;
+ position: relative;
+ text-align:center;
+}
+
+
+.eventsummary
+{
+    /* border: solid red 1px; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 430px;
+    background-color: white;
+}
+
+.pastevents, .totalevents, .thismonth, .thisyear{
+
+width: 200px;
+position: relative;
+text-align:center;
+
+}
