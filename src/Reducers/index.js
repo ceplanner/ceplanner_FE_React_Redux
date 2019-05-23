@@ -9,17 +9,20 @@ import {
   REGISTER_FAILURE,
   FETCH_USER_START,
   FETCH_USER_SUCCESS,
-
-  ADD_EVENT_START, 
+  ADD_EVENT_START,
   ADD_EVENT_SUCCESS,
-  ADD_EVENT_FAILURE, 
-
-
+  ADD_EVENT_FAILURE,
+  DELETE_EVENT_START,
+  DELETE_EVENT_SUCCESS,
+  DELETE_EVENT_FAILURE,
+  EDIT_EVENT_START,
+  EDIT_EVENT_SUCCESS,
+  EDIT_EVENT_FAILURE
 } from "../Actions";
 
 const initialState = {
   myEvents: [],
-  users:[],
+  users: [],
   loggingIn: false,
   token: localStorage.getItem("token"),
   error: "",
@@ -29,8 +32,8 @@ const initialState = {
   registering: false,
   fetchingUsers: false,
   addingEvent: false,
-  
-  
+  deletingEvent: false,
+  editingEvent: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -82,8 +85,8 @@ const reducer = (state = initialState, action) => {
         users: action.payload
       };
 
-      // 
-      case FETCH_USER_START:
+    //
+    case FETCH_USER_START:
       return {
         ...state,
         fetchingUsers: true
@@ -98,7 +101,7 @@ const reducer = (state = initialState, action) => {
         users: action.payload
       };
 
-      case ADD_EVENT_START:
+    case ADD_EVENT_START:
       return {
         ...state,
         addingEvent: true
@@ -107,17 +110,52 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         addingEvent: false,
-        error: '',
+        error: "",
         errorStatusCode: null,
         myEvents: action.payload
       };
-      case ADD_EVENT_FAILURE:
+    case ADD_EVENT_FAILURE:
       return {
         ...state,
         addingEvent: false,
         error: action.payload
       };
 
+    case DELETE_EVENT_START:
+      return {
+        ...state,
+        deletingEvent: true
+      };
+    case DELETE_EVENT_SUCCESS:
+      return {
+        ...state,
+        deletingEvent: false,
+        error: "",
+        errorStatusCode: null,
+        myEvents: [
+          ...state.myEvents.filter(event => event.id !== action.payload)
+        ]
+      };
+
+    case DELETE_EVENT_FAILURE:
+      return {
+        ...state,
+        deletingEvent: false,
+        error: action.payload
+      };
+    case EDIT_EVENT_START:
+      return {
+        ...state,
+        editingEvent: true
+      };
+    case EDIT_EVENT_SUCCESS:
+      return {
+        ...state,
+        editingEvent: false,
+        error: "",
+        errorStatusCode: null,
+        myEvents: action.payload
+      };
     default:
       return state;
   }
