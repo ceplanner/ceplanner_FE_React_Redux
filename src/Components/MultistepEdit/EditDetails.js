@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import '../component.css';
 
 class EditDetails extends Component {
   saveAndContinue = e => {
@@ -10,7 +11,7 @@ class EditDetails extends Component {
   render() {
     const { values } = this.props;
     return (
-      <Form color="green">
+      <Form className = 'editformpage1' color="green">
  
 
         <FormGroup>
@@ -74,8 +75,9 @@ class EditDetails extends Component {
             defaultValue={values.agenda}
           />
         </FormGroup>
+        <div classNmae ='buttongroup1'>
         <Button onClick={this.back}>Back</Button>
-        <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+        <Button onClick={this.saveAndContinue}>Save And Continue </Button></div>
       </Form>
     );
   }

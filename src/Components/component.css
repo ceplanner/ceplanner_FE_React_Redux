@@ -204,6 +204,24 @@ li{
 }
 .locationdiv i
 {
-    border: solid red;
+    /* border: solid red; */
     margin-right:10px
+}
+
+.editformpage1
+{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.editformpage1 .buttongroup1{
+    display: flex;
+    flex-wrap: wrap;
+    border: solid red 1px;
+    
+}
+
+.editformpage1 .buttongroup1 button{
+ margin-left: 40px;
+ 
 }

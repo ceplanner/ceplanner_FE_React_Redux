@@ -16,7 +16,7 @@ import myProfile from "./Components/myProfile";
 import AddEvent from "./Components/AddEvent";
 import NavPrivate from "./Components/NavPrivate";
 import NavPublic from "./Components/NavPublic";
-import FormEditMain from './Components/FormEditMain'
+// import FormEditMain from './Components/FormEditMain'
 import EditForm from "./Components/MultistepEdit/EditForm";
 import MyEvents2 from "./Components/myevents2";
 
