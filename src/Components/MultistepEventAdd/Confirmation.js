@@ -13,7 +13,7 @@ class Confirmation extends Component {
     this.props.addEvent(this.props.values)
 
 
-    this.props.history.push("/myevents")
+    this.props.history.push("/myevents2")
     
   };
 

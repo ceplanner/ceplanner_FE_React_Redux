@@ -10,7 +10,7 @@ class EditConfirmation extends Component {
     e.preventDefault();
     //tobe completed****************************************************8
     this.props.editEvent(this.props.values.id, this.props.values)
-    this.props.history.push("/myevents")
+    this.props.history.push("/myevents2")
   
   };
 

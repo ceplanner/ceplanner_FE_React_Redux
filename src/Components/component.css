@@ -12,11 +12,7 @@
   right: 0;
 }
 
-.agenda{
-    width: 70%;
-    
-    border: solid 2px purple;
-}
+
 
 .signupform2 .profile{
     /* border: solid red 1px; */
@@ -123,4 +119,73 @@ li{
 .myeventcontainer .navbar{
     width: 80%;
     margin: 0 auto;
+}
+.progress-bar
+{
+    width: 90%;
+   
+    
+}
+
+.eventDetail {
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+} 
+
+.eventDetailcontainer
+{
+    /* border: solid black 1px; */
+    width: 80%;
+    padding: 5%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.editLink i{
+    text-align: right;
+    /* border: solid red 1px; */
+    padding: 10px;
+    /* margin-left: 300px; */
+    display: flex;
+    justify-content: flex-end;
+    flex-direction:row;
+    
+}
+.deleteLink i{
+    text-align: right;
+    /* border: solid red 1px; */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    cursor: pointer;
+}
+ 
+.editLink p{
+    margin-left: 10px;
+}
+
+.deleteLink p
+{
+    margin-left: 10px;
+}
+.event_name{
+    
+    left:40%;
+   
+    font-size: 1.2rem;
+    width: 300px;
+    text-align: center;
+    color:  rgb(193, 190, 250)
+
+}
+
+.eventcard{
+    width: 70%;
+    margin: 0 auto;
+
 }

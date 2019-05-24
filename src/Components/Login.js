@@ -29,7 +29,7 @@ class Login extends Component {
         //this is so lazy should be accomplished with state objects ***************************************************
       
         this.props.login(this.state.credentials)
-          .then(() => this.props.history.push('/MyEvents')).then(()=>window.location.reload())
+          .then(() => this.props.history.push('/MyEvents2')).then(()=>window.location.reload())
           
       };
 

@@ -35,7 +35,7 @@ import LOGO from '../Images/LOGO.png'
            <Nav className="ml-auto" navbar>
             
             <NavItem>
-              <NavLink href="/myEvents" className='ml-5'>
+              <NavLink href="/myEvents2" className='ml-5'>
                  <p>My Events</p>
               </NavLink>
             </NavItem>
