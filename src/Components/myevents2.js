@@ -1,6 +1,6 @@
 import React from 'react'
 import MyEvents from './MyEvents'
-import Eventstage from './eventstage'
+// import Eventstage from './eventstage'
 
 
 export default function myevents2() {

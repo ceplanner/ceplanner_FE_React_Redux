@@ -4,10 +4,10 @@ import { withRouter } from "react-router-dom";
 import { getData } from "../Actions";
 import "./component.css";
 import Loader from "react-loader-spinner";
-import { NavLink, NavItem, Navbar } from "reactstrap";
-import addcalender from "../Images/Icons/calendar-plus.png";
-import Calendar from "react-calendar";
-import Eventstage from "./eventstage";
+import { NavLink, Navbar } from "reactstrap";
+// import addcalender from "../Images/Icons/calendar-plus.png";
+// import Calendar from "react-calendar";
+// import Eventstage from "./eventstage";
 
 class MyEvents extends Component {
   componentDidMount() {

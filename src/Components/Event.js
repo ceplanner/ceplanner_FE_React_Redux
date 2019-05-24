@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
-import { NavLink } from "reactstrap";
+// import { NavLink } from "reactstrap";
 import "./component.css";
-import imagewinner3 from ".././Images/Image-stats.png";
+// import imagewinner3 from ".././Images/Image-stats.png";
 
 class Event extends Component {
   componentDidMount() {
@@ -41,10 +41,10 @@ class Event extends Component {
         </Link>
 
         <div className="event_name">{event ? event.eventName : ""}</div>
-        <div>{event ? event.eventType : ""}</div>
-        {/* <div> {event ? event.eventBudget : ""}</div> */}
+        <div>Event Type: {event ? event.eventType : ""}</div>
+        <div>Event Budget: {event ? event.eventBudget : ""}</div>
         <div>{event ? event.eventDescription : ""}</div>
-        <div> {event ? event.eventDate : ""}</div>
+        <div> Date: {event ? event.eventDate : ""}</div>
         
         {/* <div> {event ? event.id : ""}</div> */}
         <div className='locationdiv'> 
