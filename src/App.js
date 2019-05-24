@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './index.css'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +18,7 @@ import NavPrivate from "./Components/NavPrivate";
 import NavPublic from "./Components/NavPublic";
 import FormEditMain from './Components/FormEditMain'
 import EditForm from "./Components/MultistepEdit/EditForm";
+import MyEvents2 from "./Components/myevents2";
 
 
 // sign out with local storage this should be improved if time allows ***************************************************
@@ -41,7 +43,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {this.state.loggedIn? <NavPrivate /> : <NavPublic />}
-
+          <Route exact path="/" component={Login} />
           <Route path="/Login" component={Login} />
           <Route path="/Signup" component={Signup} />
           {/* <Route path="/MyEvents" component={MyEvents} /> */}
@@ -50,6 +52,7 @@ class App extends Component {
           <PrivateRoute exact path="/myProfile" component={myProfile} />
           <PrivateRoute exact path="/AddEvent" component={AddEvent} />
           <PrivateRoute exact path="/editform" component={EditForm} />
+          <PrivateRoute exact path="/myevents2" component={MyEvents2} />
         </div>
       </Router>
     );

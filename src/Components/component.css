@@ -1,8 +1,4 @@
-.cardd{
-    border: solid blue 1px;
-    width: 25%;
-    margin: 10px;
-}
+
 .eventfetching{
     position: fixed;
   z-index: 999;
@@ -16,8 +12,198 @@
   right: 0;
 }
 
-.agenda{
-    width: 70%;
+
+
+.signupform2 .profile{
+    /* border: solid red 1px; */
+    margin-top: 20%;
+}
+
+.signupform2 .profile .profilep1{
+    /* border: solid red 1px; */
+   text-align: center;
+   margin-bottom: 30px;
+
+}
+
+.signupform2 .profile .profilep1 .fa-user{
+    font-size: 5rem;
+    color: white;
+    background-color: rgb(27, 20, 20);
+    border-radius: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+
+.profile p{
+    text-align: center;
+
+}
+
+.eventcontainer
+{
+    width: 80%;
+    padding-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    /* border: solid red 1px; */
     
-    border: solid 2px purple;
+}
+
+.eventadd{
+    /* border: solid red 1px; */
+    width: 20%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.eventadd .addcard, .currenteventswrap, .pasteventswrap, .totaleventswrap, .thismonthwrap, .thisyearwrap{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.currentevents{
+ background-color: rgb(193, 190, 250);
+ width: 18%;
+ position: relative;
+ text-align:center;
+}
+
+
+.eventsummary
+{
+    /* border: solid red 1px; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 430px;
+    background-color: white;
+}
+
+.pastevents, .totalevents, .thismonth, .thisyear{
+
+width: 200px;
+position: relative;
+text-align:center;
+
+}
+
+
+
+.myeventcontainer 
+.card{
+    width: 50%;
+    margin: 0 auto;
+    color: black;
+    text-decoration: none;
+}
+
+.myeventcontainer 
+.card .linker{
+    
+    text-align: right
+}
+
+li{
+    list-style: none
+}
+
+.myeventcontainer .navbar{
+    width: 80%;
+    margin: 0 auto;
+}
+.progress-bar
+{
+    width: 90%;
+   
+    
+}
+
+.eventDetail {
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+} 
+
+.eventDetailcontainer
+{
+    /* border: solid black 1px; */
+    width: 80%;
+    padding: 5%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.editLink i{
+    text-align: right;
+    /* border: solid red 1px; */
+    padding: 10px;
+    /* margin-left: 300px; */
+    display: flex;
+    justify-content: flex-end;
+    flex-direction:row;
+    
+}
+.deleteLink i{
+    text-align: right;
+    /* border: solid red 1px; */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    cursor: pointer;
+}
+ 
+.editLink p{
+    margin-left: 10px;
+}
+
+.deleteLink p
+{
+    margin-left: 10px;
+}
+.event_name{
+    
+   
+   
+    font-size: 1.4rem;
+   
+    text-align: center;
+    color:  rgb(157, 152, 253)
+
+}
+
+.eventcard{
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 5px 10px 8px #888888;
+
+}
+
+.card .agenda{
+    border-bottom: solid  rgb(157, 152, 253) 1px;
+    margin-top: 50px;
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.locationdiv 
+{
+    
+}
+.locationdiv i
+{
+    border: solid red;
+    margin-right:10px
 }

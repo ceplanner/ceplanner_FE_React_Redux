@@ -1,12 +1,12 @@
-html,
+/* html,
 body,
 #root {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   height: 100%;
   width: 100%;
   background-color: #edffff
-}
+} */
 
 .navbar-brand p{border : solid red 1px;
   color:#b76bff;
@@ -17,4 +17,17 @@ body,
 
 .nav-item p{
   color: #d0b8fa;
+}
+
+.App{
+  /* border: solid 2px black; */
+  width: 100%;
+  margin: 0 auto;
+  background-color: #edffff
+}
+
+#root,html{
+  background-color: #edffff;
+  height: 100%;
+  width: 100%;
 }

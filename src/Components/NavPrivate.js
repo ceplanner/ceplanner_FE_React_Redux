@@ -2,7 +2,8 @@ import React, {Component}from 'react'
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import { connect } from "react-redux";
 import { getUser } from "../Actions";
-
+import './navbar.css'
+import LOGO from '../Images/LOGO.png'
 
  class NavPrivate extends Component {
   constructor() {
@@ -27,24 +28,31 @@ import { getUser } from "../Actions";
     });
  
   return (
-    <div >
+    <div className='privatenavbar'>
       { user.map(user =>
       <Navbar  light expand="md" key={user.id}>
-          <NavbarBrand href="/" > <p>CORPORATE </p><p> EVENT PLANNER</p></NavbarBrand>
+         <NavbarBrand href="/" >  <img src={LOGO} alt='logo'></img></NavbarBrand>
            <Nav className="ml-auto" navbar>
+            
             <NavItem>
-              <NavLink href="/login" onClick={this.test}><p>Sign Out</p></NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/myEvents">
+              <NavLink href="/myEvents2" className='ml-5'>
                  <p>My Events</p>
               </NavLink>
             </NavItem>
+            <NavItem><NavLink href="/myProfile" className='ml-5'>
+              <i className="fas fa-user"></i>
+              </NavLink></NavItem>
             <NavItem>
-              <NavLink href="/myProfile">
+              <NavLink href="/myProfile" >
                  <p>{user.firstName}</p>
               </NavLink>
+              
+                          </NavItem>
+                          <NavItem>
+              <NavLink href="/login" onClick={this.test} className='ml-5' ><p>Sign Out</p></NavLink>
             </NavItem>
+
+           
           </Nav> 
         </Navbar>
       )}

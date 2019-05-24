@@ -36,7 +36,7 @@ class EventDetails extends Component {
         <FormGroup>
           <Label>Event Start Date</Label>
           <Input
-            type="text"
+            type="date"
             placeholder="Event Start Date"
             onChange={this.props.handleChange("eventDate")}
             defaultValue={values.eventDate}
