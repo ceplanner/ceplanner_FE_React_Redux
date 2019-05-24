@@ -99,3 +99,28 @@ position: relative;
 text-align:center;
 
 }
+
+
+
+.myeventcontainer 
+.card{
+    width: 50%;
+    margin: 0 auto;
+    color: black;
+    text-decoration: none;
+}
+
+.myeventcontainer 
+.card .linker{
+    
+    text-align: right
+}
+
+li{
+    list-style: none
+}
+
+.myeventcontainer .navbar{
+    width: 80%;
+    margin: 0 auto;
+}

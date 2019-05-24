@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { getData } from "../Actions";
 import "./component.css";
 import Loader from "react-loader-spinner";
-import { NavLink } from "reactstrap";
+import { NavLink, NavItem, Navbar } from "reactstrap";
 import addcalender from '../Images/Icons/calendar-plus.png';
 import Calendar from 'react-calendar';
 import Eventstage from './eventstage'
@@ -31,19 +31,40 @@ class MyEvents extends Component {
 
     return (<div className='myeventcontainer'>
        <Eventstage />
+      {/* <Navbar>
+       <NavItem>
+              <NavLink href="#" className='ml-1'>
+                 <p>All</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#" className='ml-1'>
+                 <p>Recent</p>
+              </NavLink>
+            </NavItem></Navbar> */}
+
+<Navbar className="navbar navbar-light bg-light justify-content-between mt-2 mb-2">
+  <a className="navbar-brand text-primary">All</a>
+  <a className="navbar-brand ml-5 text-primary">Recent</a>
+  <form className="form-inline">
+    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+    <button className="btn btn-outline-primary my-2 my-sm-0 text-primary" type="submit">Search</button>
+  </form>
+</Navbar>
+
  {myevents.map(myEvent => (
-  <div className="card-columns mt-3" key={myEvent.id}>
+  <div className="card text-center shadow p-3 mb-5 bg-white rounded" key={myEvent.id}>
     <NavLink href={`/MyEvents/${myEvent.id}`}>
      
  
- <div class="card text-center">
-   <div class="card-body">
-     <h5 class="card-title">{myEvent.eventName}</h5>
-     <p class="card-text">{myEvent.eventDescription}</p>
-     <p class="card-text"><small class="text-muted">Event Date: {myEvent.eventDate}</small></p>
-     <h5 class="card-title">Read More</h5>
+
+   <div className="card-body">
+     <h5 className="card-title text-dark mb-4">{myEvent.eventName}</h5>
+     <p className="card-text text-dark">{myEvent.eventDescription}</p>
+     <p className="card-text"><small className="text-muted">Event Date: {myEvent.eventDate}</small></p>
+     <h5 className="card-title linker">Read More...</h5>
    </div>
- </div>
+ 
 
       {/* <div>{myEvent.eventName}</div>
       <div>{myEvent.eventType}</div>
