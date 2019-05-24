@@ -175,17 +175,35 @@ li{
 }
 .event_name{
     
-    left:40%;
    
-    font-size: 1.2rem;
-    width: 300px;
+   
+    font-size: 1.4rem;
+   
     text-align: center;
-    color:  rgb(193, 190, 250)
+    color:  rgb(157, 152, 253)
 
 }
 
 .eventcard{
     width: 70%;
     margin: 0 auto;
+    box-shadow: 5px 10px 8px #888888;
 
+}
+
+.card .agenda{
+    border-bottom: solid  rgb(157, 152, 253) 1px;
+    margin-top: 50px;
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.locationdiv 
+{
+    
+}
+.locationdiv i
+{
+    border: solid red;
+    margin-right:10px
 }

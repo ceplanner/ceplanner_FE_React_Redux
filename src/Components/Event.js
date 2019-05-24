@@ -42,11 +42,15 @@ class Event extends Component {
 
         <div className="event_name">{event ? event.eventName : ""}</div>
         <div>{event ? event.eventType : ""}</div>
-        <div> {event ? event.eventBudget : ""}</div>
-        <div> {event ? event.eventDate : ""}</div>
+        {/* <div> {event ? event.eventBudget : ""}</div> */}
         <div>{event ? event.eventDescription : ""}</div>
-        <div> {event ? event.id : ""}</div>
-        <div> {event ? event.location : ""}</div>
+        <div> {event ? event.eventDate : ""}</div>
+        
+        {/* <div> {event ? event.id : ""}</div> */}
+        <div className='locationdiv'> 
+        <i class="fas fa-map-marker-alt"></i>
+        {event ? event.location : ""}
+        </div>
         <div className="agenda"> {event ? event.agenda : ""}</div>
         <div className ='deleteLink' onClick={() => this.deleteEvent(event.id)}><i class="fas fa-trash-alt"><p>Delete Event</p></i></div> 
         </div>
