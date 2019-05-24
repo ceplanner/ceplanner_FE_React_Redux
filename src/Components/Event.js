@@ -14,6 +14,8 @@ class Event extends Component {
 
   deleteEvent = id => {
     this.props.deleteEvent(id);
+    this.props.history.push("/myEvents2")
+
   };
 
   render() {
