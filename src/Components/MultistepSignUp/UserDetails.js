@@ -12,18 +12,17 @@ class UserDetails extends Component {
   render() {
     const { values } = this.props;
     return (
-      <div className="formcontainer2">
-        <div className="imgcontainer2">
-          <img src={imagewinner2} className="img-fluid" alt="fp" />
+      <div className='formcontainer2'>
+        <div className='imgcontainer2'>
+          <img src={imagewinner2} className='img-fluid' alt='fp' />
         </div>
-        <Form color="green" className="signupform2">
-          <h1 className="centered">Join Us</h1>
+        <Form color='green' className='signupform2'>
           <Row form>
             <Col md={6}>
               <FormGroup>
                 <Label>First Name</Label>
                 <Input
-                //   placeholder="First Name"
+                  //   placeholder="First Name"
                   onChange={this.props.handleChange("firstName")}
                   defaultValue={values.firstName}
                 />
@@ -33,8 +32,8 @@ class UserDetails extends Component {
               <FormGroup>
                 <Label>Last Name</Label>
                 <Input
-                  type="text"
-                //   placeholder="Last Name"
+                  type='text'
+                  //   placeholder="Last Name"
                   onChange={this.props.handleChange("lastName")}
                   defaultValue={values.lastName}
                 />
@@ -44,8 +43,8 @@ class UserDetails extends Component {
           <FormGroup>
             <Label>Email Address</Label>
             <Input
-              type="email"
-            //   placeholder="Email Address"
+              type='email'
+              //   placeholder="Email Address"
               onChange={this.props.handleChange("email")}
               defaultValue={values.email}
             />
@@ -53,8 +52,8 @@ class UserDetails extends Component {
           <FormGroup>
             <Label>Password</Label>
             <Input
-              type="password"
-            //   placeholder="Password"
+              type='password'
+              //   placeholder="Password"
               onChange={this.props.handleChange("password")}
               defaultValue={values.password}
             />
@@ -68,7 +67,9 @@ class UserDetails extends Component {
                     defaultValue={values.confirmPassword}
                     />
                 </FormGroup> */}
-          <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+          <Button className='btn' onClick={this.saveAndContinue}>
+            Save And Continue{" "}
+          </Button>
         </Form>
       </div>
     );
