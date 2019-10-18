@@ -15,7 +15,7 @@ class EventMoreDetails extends Component {
   render() {
     const { values } = this.props;
     return (
-      <Form id='form' color='blue'>
+      <Form id='form'>
         <div className='formContainer'>
           <h1 id='header'>A little More About the Event</h1>
           <FormGroup>
