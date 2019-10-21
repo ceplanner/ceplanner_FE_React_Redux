@@ -1,84 +1,66 @@
-.loginpagecontainer
-{
-    /* border: solid red 3px; */
-    /* margin-top: 0.5%; */
-    display: flex;
-   /* border: solid red 1px; */
-        width: 70%;
-    margin: 0 auto;
-    margin-top: 2%
-   
-  
-    
-}
-/* 844*1022 */
-.imgcontainer{
-    width: 650px;
-    /* border: solid black 2px; */
-    /* display: block;
-    position: absolute; */
-    /* left:0; */
-    height:787px;
-
-    
+.loginpagecontainer {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
 }
 
-.formcontainer{
-    width: 650px;
-    /* border: solid black 2px; */
-    /* display: block;
-    position: absolute;
-    right:0; */
-    height:786px;
-   
-    background-color: white;
+.imgcontainer {
+  width: 650px;
+  height: 500px;
+  margin-top: 50px;
 }
 
-.imgcontainer img{
-    width: 100%;
-    height: 100%;
+.formcontainer {
+  width: 650px;
+  border-radius: 0 10px 10px 0;
+  height: 500px;
+  margin-top: 50px;
+  background-color: white;
 }
 
-.signinform{
-    /* border: solid red 1px; */
-    padding:20%;
-    padding-top:30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
-    
+.imgcontainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+
+.signinform {
+  /* border: solid red 1px; */
+  padding: 20%;
+  padding-top: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .signinform input {
-
-    border: 0;
-    border-bottom: #AAA6FC solid 3px;
-    padding-bottom: 10px;
-    
-   
-   
+  border: 0;
+  border-bottom: #aaa6fc solid 3px;
+  padding-bottom: 10px;
 }
 
- .form-group
-{
-    /* border: solid red 1px; */
-    margin-top: 20px;
-       
+.form-group {
+  /* border: solid red 1px; */
+  margin-top: 20px;
 }
 
-.signinform button{
- /* border: solid red 2px; */
- /* margin-top: 10px; */
- width: 40%;
- margin: 0 auto;
- background-color: #AAA6FC;
- border: 0;
- margin-top:60px;
+.signinform button {
+  /* border: solid red 2px; */
+  /* margin-top: 10px; */
+  width: 40%;
+  margin: 0 auto;
+  background-color: #aaa6fc;
+  border: 0;
+  margin-top: 60px;
 }
 
-.form-group label{
-    color:  #AAA6FC;
-    font-weight: 500;
-    font-size: 1.8rem;
+.form-group label {
+  color: #aaa6fc;
+  font-weight: 500;
+  font-size: 1.8rem;
 }
 
+.register {
+  margin: 0 auto;
+}

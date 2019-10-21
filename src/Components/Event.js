@@ -13,7 +13,9 @@ class Event extends Component {
   }
 
   deleteEvent = id => {
+    console.log(this.props);
     this.props.deleteEvent(id);
+    this.props.history.push("/MyEvents2");
   };
 
   render() {
@@ -21,40 +23,49 @@ class Event extends Component {
     const event = this.props.myEvents.find(event => `${event.id}` === id);
     if (this.props.fetchingEvents)
       return (
-        <div className="eventfetching">
-          <Loader type="Circles" color="#b76bff" height="120" width="120" />
+        <div className='eventfetching'>
+          <Loader type='Circles' color='#b76bff' height='120' width='120' />
         </div>
       );
     return (
-      <div className="card eventcard">
-       
-   <div className='card-body '>
-        <Link className='editLink'
-          to={{
-            pathname: "/editform",
-            state: {
-              selectedevent: event
-            }
-          }}
-        >
-          <i class="fas fa-pencil-alt" ><p>Edit Event</p></i>
-        </Link>
+      <div className='card eventcard'>
+        <div className='card-body '>
+          <Link
+            className='editLink'
+            to={{
+              pathname: "/editform",
+              state: {
+                selectedevent: event
+              }
+            }}
+          >
+            <i class='fas fa-pencil-alt'>
+              <p>Edit Event</p>
+            </i>
+          </Link>
 
-        <div className="event_name">{event ? event.eventName : ""}</div>
-        <div>Event Type: {event ? event.eventType : ""}</div>
-        <div>Event Budget: {event ? event.eventBudget : ""}</div>
-        <div>{event ? event.eventDescription : ""}</div>
-        <div> Date: {event ? event.eventDate : ""}</div>
-        
-        {/* <div> {event ? event.id : ""}</div> */}
-        <div className='locationdiv'> 
-        <i class="fas fa-map-marker-alt"></i>
-        {event ? event.location : ""}
+          <div className='event_name'>{event ? event.eventName : ""}</div>
+          <div>Event Type: {event ? event.eventType : ""}</div>
+          <div>Event Budget: {event ? event.eventBudget : ""}</div>
+          <div>{event ? event.eventDescription : ""}</div>
+          <div> Date: {event ? event.eventDate : ""}</div>
+
+          {/* <div> {event ? event.id : ""}</div> */}
+          <div className='locationdiv'>
+            <i class='fas fa-map-marker-alt'></i>
+            {event ? event.location : ""}
+          </div>
+          <div className='agenda'> {event ? event.agenda : ""}</div>
+          <div
+            className='deleteLink'
+            onClick={() => this.deleteEvent(event.id)}
+          >
+            <i class='fas fa-trash-alt'>
+              <p>Delete Event</p>
+            </i>
+          </div>
         </div>
-        <div className="agenda"> {event ? event.agenda : ""}</div>
-        <div className ='deleteLink' onClick={() => this.deleteEvent(event.id)}><i class="fas fa-trash-alt"><p>Delete Event</p></i></div> 
-        </div>
-{/* 
+        {/* 
         <div className="card" >
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
@@ -64,7 +75,6 @@ class Event extends Component {
     <a href="#" class="card-link">Another link</a>
   </div>
 </div> */}
-
       </div>
     );
   }
