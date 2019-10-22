@@ -39,6 +39,14 @@
   text-align: center;
 }
 
+.eventcard {
+  min-height: 400px;
+}
+
+.deleteLink {
+  border: none;
+}
+
 .eventcontainer {
   width: 80%;
   padding-top: 20px;
@@ -115,18 +123,23 @@
   margin: 0 auto;
   border-radius: 40px;
   min-height: 500px;
-  margin-top: 50px;
+  margin-top: 25px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
-.myeventcontainer .card {
-  width: 50%;
+.card {
+  width: 250px;
   margin: 0 auto;
-  color: black;
+  background: white !important;
   text-decoration: none;
+  height: 300px;
 }
 
 .myeventcontainer .card .linker {
-  text-align: right;
+  text-align: center;
 }
 
 li {
