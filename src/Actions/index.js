@@ -119,7 +119,7 @@ export const deleteEvent = id => dispatch => {
   dispatch({ type: DELETE_EVENT_START });
   axios
     .delete(`https://cep-buildweek.herokuapp.com/api/events/${id}`, {
-      headers: { Authorization: localStorage.getItem("token") }
+      headers: { Authorization: sessionStorage.getItem("token") }
     })
     .then(res => {
       console.log(id, 'TESTING')
@@ -146,7 +146,7 @@ export const editEvent = (id,event) => dispatch => {
   dispatch({ type: EDIT_EVENT_START });
   axios
     .put(`https://cep-buildweek.herokuapp.com/api/events/${id}`, event, {
-      headers: { Authorization: localStorage.getItem("token") }
+      headers: { Authorization: sessionStorage.getItem("token") }
     })
     .then(res => {
       console.log(id, 'TESTING put')
