@@ -12,8 +12,8 @@ export const login = creds => dispatch => {
     .post("https://cep-buildweek.herokuapp.com/api/login", creds)
     .then(res => {
       console.log(res, "from login");
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("userid", res.data.user.id);
+      sessionStorage.setItem("token", res.data.token);
+      sessionStorage.setItem("userid", res.data.user.id);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
     });
 };
@@ -29,7 +29,7 @@ export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
     .get("https://cep-buildweek.herokuapp.com/api/events", {
-      headers: { Authorization: localStorage.getItem("token") }
+      headers: { Authorization: sessionStorage.getItem("token") }
     })
     .then(res => {
       console.log(res.data, "hi from get data res");
@@ -73,7 +73,7 @@ export const getUser = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
     .get("https://cep-buildweek.herokuapp.com/api/users", {
-      headers: { Authorization: localStorage.getItem("token") }
+      headers: { Authorization: sessionStorage.getItem("token") }
     })
     .then(res => {
       console.log(res, "hi from get user res");
@@ -97,7 +97,7 @@ export const addEvent = event => dispatch => {
   dispatch({ type: ADD_EVENT_START });
   axios
     .post("https://cep-buildweek.herokuapp.com/api/events", event, {
-      headers: { Authorization: localStorage.getItem("token") }
+      headers: { Authorization: sessionStorage.getItem("token") }
     })
     .then(res => {
       console.log(res.data, "hiiiiiii");
