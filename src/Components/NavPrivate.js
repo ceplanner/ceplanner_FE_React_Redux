@@ -16,14 +16,14 @@ class NavPrivate extends Component {
   }
 
   test() {
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     // window.location.reload()
     // this.setState({...this.state, loading:true})
   }
 
   render() {
     const user = this.props.users.filter(function(user) {
-      return `${user.id}` === localStorage.getItem("userid");
+      return `${user.id}` === sessionStorage.getItem("userid");
     });
 
     return (
